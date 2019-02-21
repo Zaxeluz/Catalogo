@@ -2,22 +2,22 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:8889
--- Tiempo de generación: 14-02-2019 a las 19:28:06
--- Versión del servidor: 5.7.23
--- Versión de PHP: 7.2.10
+-- Host: localhost:8889
+-- Generation Time: Feb 21, 2019 at 07:45 PM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de datos: `tiendamascotas`
+-- Database: `tiendamascotas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `especies`
+-- Table structure for table `especies`
 --
 
 CREATE TABLE `especies` (
@@ -26,7 +26,7 @@ CREATE TABLE `especies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `especies`
+-- Dumping data for table `especies`
 --
 
 INSERT INTO `especies` (`id`, `nombre`) VALUES
@@ -38,7 +38,7 @@ INSERT INTO `especies` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mascotas`
+-- Table structure for table `mascotas`
 --
 
 CREATE TABLE `mascotas` (
@@ -53,7 +53,7 @@ CREATE TABLE `mascotas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -63,7 +63,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -85,7 +85,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -100,75 +100,82 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Índices para tablas volcadas
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Amarillas', 'amarillas_rene@hotmail.com', NULL, '$2y$10$RHxeloDP7uworuN4JQ7xx..jnNrB2r3qW7ZGUdyXN.nXwFwwdm.Um', 'TExKw5cIrBp9KTSaKtKWI3aLC3I4MgKGdMunpluvkAr862GzT9QJZecAweow', '2019-02-22 02:37:46', '2019-02-22 02:37:46');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `especies`
+-- Indexes for table `especies`
 --
 ALTER TABLE `especies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `mascotas`
+-- Indexes for table `mascotas`
 --
 ALTER TABLE `mascotas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_especie` (`id_especie`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `especies`
+-- AUTO_INCREMENT for table `especies`
 --
 ALTER TABLE `especies`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `mascotas`
+-- AUTO_INCREMENT for table `mascotas`
 --
 ALTER TABLE `mascotas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `mascotas`
+-- Constraints for table `mascotas`
 --
 ALTER TABLE `mascotas`
   ADD CONSTRAINT `mascotas_ibfk_1` FOREIGN KEY (`id_especie`) REFERENCES `especies` (`id`);

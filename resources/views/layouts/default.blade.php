@@ -112,7 +112,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <form acction="{{route('logout')}}" method="POST"> 
+                  <form action="{{route('logout')}}" method="POST"> 
                     @csrf
                     <button type="submit" class="btn btn-default btn-flat">Cerrar sesión</a>
                   </form>
